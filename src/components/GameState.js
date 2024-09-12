@@ -16,10 +16,13 @@ const GameState = () => {
         setGameOver(false);
     };
 
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+
     useEffect(() => {
-        const handleKeyPress = (e) => {
+        const handleKeyPress = async(e) => {
             if (e.key === "r") {
                 handleGameOver("reset");
+                await delay(10);
                 handleResetGame();
             }
         };
